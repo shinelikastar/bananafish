@@ -1,0 +1,67 @@
+:root {
+  --pastel-red: #ff6a72;
+  --pastel-orange: #ffac6e;
+  --pastel-yellow: #ffe794;
+  --pastel-green: #beff7f;
+  --pastel-blue: #94f1ff;
+  --pastel-purple: #ebaaff;
+}
+
+@font-face {
+  font-family: Clearface;
+  src: url("../assets/ClearfaceStd-Bold.otf");
+}
+
+body {
+  background-color: var(--pastel-red);
+  margin: 0;
+  padding: 30px;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: Clearface;
+  font-size: 15pt;
+  opacity: 0.5;
+}
+
+h2 {
+  margin: 0;
+  margin-top: 20px;
+  font-family: Clearface;
+  font-size: 63pt;
+  width: 40%;
+}
+
+.title-block {
+  width: 30%;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#circle {
+    border: 1px solid white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/*cursor*/
+body, html {
+  cursor: url(https://rm-content.s3-accelerate.amazonaws.com/5727aec1db932f2f3ac1f556/957532/upload-e1250e30-139f-11e8-af61-ef72959cb5f6.png) 25 15, auto;
+  height: 100%;
+}
+
+a:link {
+  cursor: url(https://rm-content.s3-accelerate.amazonaws.com/5727aec1db932f2f3ac1f556/957532/upload-e1250e30-139f-11e8-af61-ef72959cb5f6.png) 25 15, pointer;
+  height: 100%;
+}
+
+
+a:hover {
+  cursor: url(https://rm-content.s3-accelerate.amazonaws.com/5727aec1db932f2f3ac1f556/957532/upload-da51a890-141a-11e8-b3e1-7b376df50f61.png) 25 15, pointer;
+  height: 100%;
+}
