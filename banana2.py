@@ -26,13 +26,22 @@ class Prompt(Cmd):
 				'black', 'white', 'grey'] 
 
 	def do_find_neighbors(self, args):
-		# stoplist = set(stopwords.words('english'))
-		# clean = [word for word in corpus.split() if word not in stoplist]
-		# clean = ' '.join(clean)
+		stoplist = set(stopwords.words('english'))
+		clean = [word for word in corpus.split() if word not in stoplist]
+		clean = ' '.join(clean)
 
-		# text = clean.split('.')
-		# text = list(map(lambda x: x.split(), text))
-		# clean_text = [x for x in text if x] 
+		text = clean.split('.')
+		text = list(map(lambda x: x.split(), text))
+		#clean_text = [x for x in text if x]
+
+		sentences = clean_text
+		model = Word2Vec(sentences, min_count=1)
+		words = list(model.wv.vocab)
+		model.save('model.bin')
+		# load model
+		new_model = Word2Vec.load('model.bin')
+		color1 = ['red']
+		print(model.wv.most_similar(positive=color1,topn=10))
 		pass
 
 	def do_find_colors(self, args):
