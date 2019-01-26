@@ -14,10 +14,9 @@ function getTitle() {
   document.getElementById("titleContainer").appendChild(h);
 }
 
-function readTextFile(file)
+function readTextFile(file, title)
 {	
-	console.log("you have done this!");
-	console.log(file);
+	document.getElementById("titleContainer").innerHTML = title;
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()

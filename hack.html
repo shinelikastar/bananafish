@@ -11,11 +11,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body onload="getTitle(), readTextFile('./text.txt')" >
+<body onload="getTitle(), readTextFile('./text.txt', 'The Great Gatsby')" >
 <div id='sidebar'>
-    <a class="one" onclick="readTextFile('./text.txt')" href="/#"></a>
-    <a class="two" onclick="readTextFile('./text2.txt')"  href="/#"></a>
-    <a class="three" onclick="readTextFile('./text3.txt')"  href="/#"></a>
+    <a class="one" onclick="readTextFile('./gatsby-colors.txt', 'The Great Gatsby')" href="/#"></a>
+    <a class="two" onclick="readTextFile('./eyre-colors.txt', 'Jane Eyre')"  href="/#"></a>
+    <a class="three" onclick="readTextFile('./text3.txt', 'Example')"  href="/#"></a>
 </div>
 <canvas id='myCanvas' ></canvas>
 
@@ -24,7 +24,9 @@
 	<h1>choose another book!</h1>
 </div>
 
-<div id='titleContainer'></div>
+<h2>
+	<div id='titleContainer'></div>
+</h2>
 
 </body>
 </html>
