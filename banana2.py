@@ -39,9 +39,7 @@ class Prompt(Cmd):
 		total_colors = sum(c.values())
 
 		for color in self.color_list:
-			with open('colors.txt', 'w') as f:
-				f.write('%s %f ' % (color, (c[color] / total_colors)*100))
-			self.color_corpus.write('%s %f' % (color, (c[color] / total_colors)*100))
+			self.color_corpus.write('%s %f ' % (color, (c[color] / total_colors)*100))
 			print("%s %f" % (color, (c[color] / total_colors)*100))
 		self.color_corpus.close()
 
