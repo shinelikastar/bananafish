@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>so many nice colors</title>
+	<!-- <link rel="shortcut icon" type="image/png" href="assets/imgs/B.png"/> -->
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+
+	<meta name="keywords" content="literature" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="getTitle(), readTextFile('./text.txt')">
+
+<div class='top-bar'>
+	<h1>so many nice colors</h1>
+	<h1>choose another book!</h1>
+</div>
+
+<div id='titleContainer'></div>
+
+<div id='circle'></div>
+
+<canvas id='myCanvas' width="100%" height = "100%"></canvas>
+
+<script>
+	var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+ctx.stroke();
+</script>
+
+</body>
+</html>
