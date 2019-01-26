@@ -16,6 +16,7 @@ class Prompt(Cmd):
 		try:
 			corpus = open(sys.argv[1:][0], encoding='utf8').read().lower()
 			corpus = corpus.translate(string.punctuation)
+			color_corpus = open('colors.txt', 'w+')
 		except IOError:
 			print('let me chew on [some words]')
 
@@ -38,7 +39,11 @@ class Prompt(Cmd):
 		total_colors = sum(c.values())
 
 		for color in self.color_list:
-			print('%s %f' % (color, (c[color] / total_colors)*100))
+			with open('colors.txt', 'w') as f:
+				f.write('%s %f ' % (color, (c[color] / total_colors)*100))
+			self.color_corpus.write('%s %f' % (color, (c[color] / total_colors)*100))
+			print("%s %f" % (color, (c[color] / total_colors)*100))
+		self.color_corpus.close()
 
 	def do_q(self, args):
 		"""enter <q> to stop this madness """
@@ -53,6 +58,6 @@ class Prompt(Cmd):
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
-		print('let me chew on [some words]...')
+		print('let me chew on [some words] [spit out some colors]...')
 	else:
 		Prompt().cmdloop()
