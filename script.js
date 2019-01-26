@@ -5,7 +5,7 @@ var cumulativeArray = [];
 
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
-var one = document.getElementsByClassName("one").addEventListener("click", readTextFile(file));
+
 
 function getTitle() {
   var h = document.createElement("h2");
@@ -14,9 +14,8 @@ function getTitle() {
   document.getElementById("titleContainer").appendChild(h);
 }
 
-function readTextFile(file, title)
-{	
-	document.getElementById("titleContainer").innerHTML = title;
+function readTextFile(file)
+{
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
@@ -37,13 +36,14 @@ function readTextFile(file, title)
 	makeDots();
 }
 
-
+function getRandomFloat(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function setBg()  {
-	bg = "linear-gradient( to right, ";
 	var cumulative = 0;
     for (var i=0; i<splitString.length; i+=2) {
-    	if (parseInt(splitString[i+1])) {
+    	if (parseFloat(splitString[i+1])) {
     		if (splitString[i] === "red") {
     			bg += "var(--pastel-red) ";
 	    	}
@@ -72,16 +72,18 @@ function setBg()  {
 	    		bg += "gray ";
 	    	}
 	    	if (i+1 === splitString.length-1) {
-	    		bg += "100% )"
+	    		bg += cumulative + "% )"
 	    	}
 	    	else {
 	    		bg += cumulative + "%, ";
 	    	}
-	    	cumulative = parseInt(splitString[i+1]) + cumulative;
+	    	cumulative = parseFloat(splitString[i+1]) + cumulative;
 	    	cumulativeArray.push(cumulative);
     	}
+
     }
 	document.body.style.backgroundImage = bg;
+	console.log(bg)
 }
 
 function makeDots() {
@@ -97,7 +99,8 @@ function makeDots() {
 	c.height = h;
 
 	for (var j=0; j<percentages.length; j+=1) {
-		var yvalue = w*Math.random();
+		var yvalue = h*getRandomFloat(.3, .7);
+		console.log(yvalue)
 		ctx.beginPath();
 		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
 		ctx.strokeStyle = "#ffffff";
