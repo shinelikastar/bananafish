@@ -5,7 +5,7 @@ var cumulativeArray = [];
 
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
-
+var one = document.getElementsByClassName("one").addEventListener("click", readTextFile(file));
 
 function getTitle() {
   var h = document.createElement("h2");
@@ -15,7 +15,9 @@ function getTitle() {
 }
 
 function readTextFile(file)
-{
+{	
+	console.log("you have done this!");
+	console.log(file);
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
@@ -36,7 +38,10 @@ function readTextFile(file)
 	makeDots();
 }
 
+
+
 function setBg()  {
+	bg = "linear-gradient( to right, ";
 	var cumulative = 0;
     for (var i=0; i<splitString.length; i+=2) {
     	if (parseInt(splitString[i+1])) {

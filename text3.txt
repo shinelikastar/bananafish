@@ -1,0 +1,1 @@
+green 20 blue 20 purple 10 white 10 red 30

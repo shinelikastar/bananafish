@@ -1,0 +1,1 @@
+red 10 orange 10 yellow 40 blue 10
