@@ -1,10 +1,10 @@
 var title = "The Great Gatsby";
 var allText = "";
 var splitString = "";
+var cumulativeArray = [];
 
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
-
 
 
 function getTitle() {
@@ -12,7 +12,6 @@ function getTitle() {
   var t = document.createTextNode(title);
   h.appendChild(t);
   document.getElementById("titleContainer").appendChild(h);
-  console.log("h2")
 }
 
 function readTextFile(file)
@@ -72,7 +71,37 @@ function readTextFile(file)
 	    		bg += cumulative + "%, ";
 	    	}
 	    	cumulative = parseInt(splitString[i+1]) + cumulative;
+	    	cumulativeArray.push(cumulative);
     	}
     }
 	document.body.style.backgroundImage = bg;
-}	
+	makeDots();
+}
+
+function makeDots() {
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	const percentages = cumulativeArray.map(x => x/100.0);
+	const positions = percentages.map(x => x*w);
+	const fixedPositions = positions.map(x => (x-50)/1.3);
+	console.log(positions)
+
+	c.width = w;
+	c.height = h;
+
+	for (var j=0; j<percentages.length; j+=1) {
+		ctx.beginPath();
+		ctx.arc(fixedPositions[j], 400, 8, 0, 2 * Math.PI);
+		ctx.strokeStyle = "#ffffff";
+		ctx.stroke();
+	}
+	
+
+	// ctx.beginPath();
+	// ctx.arc(200, 400, 8, 0, 2 * Math.PI);
+	// ctx.strokeStyle = "#ffffff";
+	// ctx.stroke();
+}
+

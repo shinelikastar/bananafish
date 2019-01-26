@@ -33,6 +33,15 @@ h2 {
   width: 40%;
 }
 
+#myCanvas {
+  z-index: -1;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .title-block {
   width: 30%;
 }
@@ -47,6 +56,92 @@ h2 {
     width: 20px;
     height: 20px;
     border-radius: 50%;
+}
+
+/*sidebar*/
+#sidebar {
+  position:fixed;
+  width:200px;
+  padding: 20px;
+  right:20px;
+  z-index:999;
+  margin-top:20px;
+  text-align:right;
+}
+
+#sidebar a {
+  display: inline-block;
+  margin-top: 30px;
+  color: white;
+  text-decoration: none;
+  font-family: Clearface;
+}
+
+.one:after {
+  content: "great gatsby";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.one:hover:after {
+  opacity:1;
+}
+
+.one:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+
+}
+
+.two:after {
+  content: "wizard of oz";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.two:hover:after {
+  opacity:1;
+}
+
+.two:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
+
+.three:after {
+  content: "old man and the sea";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.three:hover:after {
+  opacity:1;
+}
+
+.three:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
 }
 
 /*cursor*/

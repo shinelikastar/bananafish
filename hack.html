@@ -11,7 +11,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body onload="getTitle(), readTextFile('./text.txt')">
+<body onload="getTitle(), readTextFile('./text.txt')" >
+<div id='sidebar'>
+    <a class="one" href="/#"></a>
+    <a class="two" href="/#"></a>
+    <a class="three" href="/#"></a>
+</div>
+<canvas id='myCanvas' ></canvas>
 
 <div class='top-bar'>
 	<h1>so many nice colors</h1>
@@ -19,18 +25,6 @@
 </div>
 
 <div id='titleContainer'></div>
-
-<div id='circle'></div>
-
-<canvas id='myCanvas' width="100%" height = "100%"></canvas>
-
-<script>
-	var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.beginPath();
-ctx.arc(95, 50, 40, 0, 2 * Math.PI);
-ctx.stroke();
-</script>
 
 </body>
 </html>

@@ -1,1 +1,1 @@
-red 40 green 20 blue 0 orange 10 purple 30
+red 10 green 20 blue 10 orange 30 purple 30
