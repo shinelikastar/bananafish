@@ -32,12 +32,16 @@ function readTextFile(file)
         }
     }
     rawFile.send(null);
+    setBg();
+	makeDots();
+}
 
+function setBg()  {
 	var cumulative = 0;
     for (var i=0; i<splitString.length; i+=2) {
     	if (parseInt(splitString[i+1])) {
     		if (splitString[i] === "red") {
-    		bg += "var(--pastel-red) ";
+    			bg += "var(--pastel-red) ";
 	    	}
 	    	else if (splitString[i] === "orange") {
 	    		bg += "var(--pastel-orange) ";
@@ -60,10 +64,9 @@ function readTextFile(file)
 	    	else if (splitString[i] === "white") {
 	    		bg += "white ";
 	    	}
-	    	else if (splitString[i] === "gray") {
+	    	else if (splitString[i] === "grey") {
 	    		bg += "gray ";
 	    	}
-
 	    	if (i+1 === splitString.length-1) {
 	    		bg += "100% )"
 	    	}
@@ -75,7 +78,6 @@ function readTextFile(file)
     	}
     }
 	document.body.style.backgroundImage = bg;
-	makeDots();
 }
 
 function makeDots() {
@@ -86,22 +88,16 @@ function makeDots() {
 	const percentages = cumulativeArray.map(x => x/100.0);
 	const positions = percentages.map(x => x*w);
 	const fixedPositions = positions.map(x => (x-50)/1.3);
-	console.log(positions)
 
 	c.width = w;
 	c.height = h;
 
 	for (var j=0; j<percentages.length; j+=1) {
+		var yvalue = w*Math.random();
 		ctx.beginPath();
-		ctx.arc(fixedPositions[j], 400, 8, 0, 2 * Math.PI);
+		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
 		ctx.strokeStyle = "#ffffff";
 		ctx.stroke();
 	}
-	
-
-	// ctx.beginPath();
-	// ctx.arc(200, 400, 8, 0, 2 * Math.PI);
-	// ctx.strokeStyle = "#ffffff";
-	// ctx.stroke();
 }
 
