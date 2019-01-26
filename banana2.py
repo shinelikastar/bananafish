@@ -1,5 +1,7 @@
 from cmd import Cmd
 from collections import Counter
+import nltk
+from nltk.tokenize import sent_tokenize 
 import gzip
 import logging
 import re
@@ -21,10 +23,10 @@ class Prompt(Cmd):
 			print('let me chew on [some words]')
 
 	color_list = ['red', 'orange', 'yellow', 'green', 'blue', 'purple',
-				'black', 'white', 'dark', 'grey', 'pale',
-				'pink', 'blush'] 
+				'black', 'white', 'grey'] 
 
 	def do_find_colors(self, args):
+
 		text_lst = re.split('\s|(?<!\d)[.]|[.](?!\d)', self.corpus)
 		clean_text = [x for x in text_lst if x] 
 
