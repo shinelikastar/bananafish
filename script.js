@@ -48,6 +48,7 @@ function getRandomFloat(min, max) {
 function setBg()  {
 	var cumulative = 0;
 	bg = "linear-gradient( to right, ";
+	console.log(bg.length);
 
 	console.log("set bg len:"  + splitString.length);
 
@@ -95,9 +96,14 @@ function setBg()  {
 			console.log("--------")
 	    	cumulative = parseFloat(splitString[i+1]) + cumulative;
 	    	cumulativeArray.push(cumulative);
+		} else if (i+2 === splitString.length) {
+			console.log("in else" + bg);
+			bg = bg.substring(0, bg.length-2);
+			console.log("after substrng" + bg);
+			bg += " )";
 		}
 		
-
+		console.log(bg);
     }
 	document.body.style.backgroundImage = bg;
 
