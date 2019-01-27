@@ -1,0 +1,1 @@
+red 13.880126 orange 0.473186 yellow 5.678233 green 7.097792 blue 9.463722 purple 2.839117 black 30.283912 white 25.236593 grey 5.047319 
