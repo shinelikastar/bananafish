@@ -1,4 +1,4 @@
-# ColoringBooks
+# Coloring Books
 
 Look here for our attempt to find the colors of stories through text analysis: 
 
