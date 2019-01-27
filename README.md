@@ -11,7 +11,7 @@ sources. Text analysis done in python, making use of both traditional methods an
 Built by Bethany, Star, Zachary, and Katherine for Hack@Brown 2019.  
 
 
-#Structure
+# Structure
 
 story.txt files: complete copies of each story
 story-colors.txt files: produced by a python script, contain space separated data in the form of 
