@@ -5,7 +5,12 @@ var cumulativeArray = [];
 
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
-var one = document.getElementsByClassName("one").addEventListener("click", readTextFile(file));
+
+document.getElementsByClassName("one").addEventListener("click", readTextFile(file, title));
+document.getElementsByClassName("two").addEventListener("click", readTextFile(file, title));
+document.getElementsByClassName("three").addEventListener("click", readTextFile(file, title));
+document.getElementsByClassName("four").addEventListener("click", readTextFile(file, title));
+
 
 function getTitle() {
   var h = document.createElement("h2");
