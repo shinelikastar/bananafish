@@ -31,7 +31,7 @@ class Prompt(Cmd):
 		"""give me [color] [text]"""
 		command = args.split()
 		file = command[0]
-		#color_corpus = open(command[1], 'w+')
+		color_corpus = open(command[1], 'w+')
 
 		corpus = open(file, encoding='utf8').read().lower()
 		stoplist = set(stopwords.words('english'))
@@ -52,11 +52,19 @@ class Prompt(Cmd):
 		#print(model.wv.most_similar(positive=color1,topn=10))
 
 		for color in self.color_list:
+			color_corpus.write(color + " ")
 			sys.stdout.write(color + " ")
-			neighbors = model.wv.most_similar(positive=color,topn=10)
+			if color not in model.wv.vocab:
+				color_corpus.write("\n")
+				sys.stdout.write("\n")
+				continue
+			neighbors = model.wv.most_similar(positive=[color],topn=10)
 			for neighbor, val in neighbors:
+				color_corpus.write(neighbor + " ")
 				sys.stdout.write(neighbor + " ")
+			color_corpus.write("\n")
 			sys.stdout.write("\n")
+		color_corpus.close()
 		sys.stdout.flush()
 		pass
 
