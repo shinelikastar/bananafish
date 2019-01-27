@@ -40,11 +40,12 @@ function getRandomFloat(min, max) {
 }
 
 function setBg()  {
+	cumulativeArray = [];
 	var cumulative = 0;
 	bg = "linear-gradient( to right, ";
-	console.log(splitString);
+	// console.log(splitString);
 
-	console.log("set bg len:"  + splitString.length);
+	// console.log("set bg len:"  + splitString.length);
 
 	let popped = splitString.pop();
     for (var i=0; i<splitString.length; i+=2) {
@@ -90,26 +91,23 @@ function setBg()  {
 			bg = bg.substring(0, bg.length-2);
 			bg += " )";
 		}
-		
-		console.log(bg);
+		// console.log(bg);
     }
 	document.body.style.backgroundImage = bg;
-
-	console.log("-----------------------------------------------")
+	// console.log("-----------------------------------------------")
 }
 
 
-var c = document.getElementById("myCanvas");
-
 function makeDots() {
-
+	clearDots();
+	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
-	ctx.clearRect(0, 0, c.width, c.height);
 	var w = window.innerWidth;
 	var h = window.innerHeight;
-	const percentages = cumulativeArray.map(x => x/100.0);
-	const positions = percentages.map(x => x*w);
-	const fixedPositions = positions.map(x => x-50);
+
+	var percentages = cumulativeArray.map(x => x/100.0);
+	var positions = percentages.map(x => x*w);
+	var fixedPositions = positions.map(x => x-50);
 
 	c.width = w;
 	c.height = h;
@@ -121,7 +119,10 @@ function makeDots() {
 		ctx.strokeStyle = "#ffffff";
 		ctx.stroke();
 	}
+}
 
-	
-
+function clearDots() {
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.clearRect(0, 0, c.width, c.height);
 }
