@@ -42,12 +42,9 @@ function getRandomFloat(min, max) {
 function setBg()  {
 	var cumulative = 0;
 	bg = "linear-gradient( to right, ";
-<<<<<<< HEAD
 	console.log(splitString);
 
 	console.log("set bg len:"  + splitString.length);
-=======
->>>>>>> 5a5a6892031ddfc8a693114b2ed8e0b2eb3719d0
 
 	let popped = splitString.pop();
     for (var i=0; i<splitString.length; i+=2) {
@@ -107,6 +104,7 @@ var c = document.getElementById("myCanvas");
 function makeDots() {
 
 	var ctx = c.getContext("2d");
+	ctx.clearRect(0, 0, c.width, c.height);
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 	const percentages = cumulativeArray.map(x => x/100.0);
@@ -123,5 +121,7 @@ function makeDots() {
 		ctx.strokeStyle = "#ffffff";
 		ctx.stroke();
 	}
+
+	
 
 }
