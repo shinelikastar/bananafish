@@ -7,12 +7,6 @@ var cumulativeArray = [];
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
 
-// document.getElementsByClassName("one").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("two").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("three").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("four").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("five").addEventListener("click", readTextFile;
-
 function getTitle() {
   var h = document.createElement("h2");
   var t = document.createTextNode(title);
@@ -33,7 +27,6 @@ function readTextFile(file, title)
             {
                 allText = rawFile.responseText;
 				splitString = allText.split(" ");
-				console.log(splitString);
             }
         }
     }
@@ -49,9 +42,12 @@ function getRandomFloat(min, max) {
 function setBg()  {
 	var cumulative = 0;
 	bg = "linear-gradient( to right, ";
+<<<<<<< HEAD
 	console.log(splitString);
 
 	console.log("set bg len:"  + splitString.length);
+=======
+>>>>>>> 5a5a6892031ddfc8a693114b2ed8e0b2eb3719d0
 
 	let popped = splitString.pop();
     for (var i=0; i<splitString.length; i+=2) {
@@ -91,16 +87,10 @@ function setBg()  {
 	    		bg += cumulative + "%, ";
 			}
 			
-			console.log("bg " + bg)
-			console.log("splitstring: " + i + " :" + splitString[i])
-			console.log("splitstring: " + splitString[i+1]);
-			console.log("--------")
 	    	cumulative = parseFloat(splitString[i+1]) + cumulative;
 	    	cumulativeArray.push(cumulative);
 		} else if (i+2 === splitString.length) {
-			console.log("in else" + bg);
 			bg = bg.substring(0, bg.length-2);
-			console.log("after substrng" + bg);
 			bg += " )";
 		}
 		
@@ -111,10 +101,11 @@ function setBg()  {
 	console.log("-----------------------------------------------")
 }
 
+
 var c = document.getElementById("myCanvas");
 
-
 function makeDots() {
+
 	var ctx = c.getContext("2d");
 	var w = window.innerWidth;
 	var h = window.innerHeight;
