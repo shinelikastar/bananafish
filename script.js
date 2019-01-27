@@ -10,9 +10,7 @@ var bg = "linear-gradient( to right, ";
 // document.getElementsByClassName("two").addEventListener("click", readTextFile(file, title));
 // document.getElementsByClassName("three").addEventListener("click", readTextFile(file, title));
 // document.getElementsByClassName("four").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("five").addEventListener("click", readTextFile(file, title));
-// document.getElementsByClassName("six").addEventListener("click", readTextFile(file, title));
-
+// document.getElementsByClassName("five").addEventListener("click", readTextFile;
 
 function getTitle() {
   var h = document.createElement("h2");
@@ -22,7 +20,7 @@ function getTitle() {
 }
 
 function readTextFile(file, title)
-{	
+{
 	document.getElementById("titleContainer").innerHTML = title;
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -33,9 +31,8 @@ function readTextFile(file, title)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 allText = rawFile.responseText;
-                splitString = allText.split(" ");
-                // alert(allText);
-                
+				splitString = allText.split(" ");
+				console.log(splitString);
             }
         }
     }
@@ -44,13 +41,19 @@ function readTextFile(file, title)
 	makeDots();
 }
 
-
+function getRandomFloat(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function setBg()  {
-	bg = "linear-gradient( to right, ";
 	var cumulative = 0;
+	bg = "linear-gradient( to right, ";
+
+	console.log("set bg len:"  + splitString.length);
+
+	let popped = splitString.pop();
     for (var i=0; i<splitString.length; i+=2) {
-    	if (parseInt(splitString[i+1])) {
+    	if (parseFloat(splitString[i+1])) {
     		if (splitString[i] === "red") {
     			bg += "var(--pastel-red) ";
 	    	}
@@ -77,38 +80,47 @@ function setBg()  {
 	    	}
 	    	else if (splitString[i] === "grey") {
 	    		bg += "gray ";
-	    	}
+			}
+			
 	    	if (i+1 === splitString.length-1) {
-	    		bg += "100% )"
+	    		bg += cumulative + "% )";
 	    	}
 	    	else {
 	    		bg += cumulative + "%, ";
-	    	}
-	    	cumulative = parseInt(splitString[i+1]) + cumulative;
+			}
+			
+			console.log("bg " + bg)
+			console.log("splitstring: " + i + " :" + splitString[i])
+			console.log("splitstring: " + splitString[i+1]);
+			console.log("--------")
+	    	cumulative = parseFloat(splitString[i+1]) + cumulative;
 	    	cumulativeArray.push(cumulative);
-    	}
+		}
+		
+
     }
 	document.body.style.backgroundImage = bg;
+
+	console.log("-----------------------------------------------")
 }
 
 function makeDots() {
-	var c = document.getElementById("myCanvas");
-	var ctx = c.getContext("2d");
-	var w = window.innerWidth;
-	var h = window.innerHeight;
-	const percentages = cumulativeArray.map(x => x/100.0);
-	const positions = percentages.map(x => x*w);
-	const fixedPositions = positions.map(x => (x-50)/1.3);
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d");
+	// var w = window.innerWidth;
+	// var h = window.innerHeight;
+	// const percentages = cumulativeArray.map(x => x/100.0);
+	// const positions = percentages.map(x => x*w);
+	// const fixedPositions = positions.map(x => x-50);
 
-	c.width = w;
-	c.height = h;
+	// c.width = w;
+	// c.height = h;
 
-	for (var j=0; j<percentages.length; j+=1) {
-		var yvalue = w*Math.random();
-		ctx.beginPath();
-		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
-		ctx.strokeStyle = "#ffffff";
-		ctx.stroke();
-	}
+	// for (var j=0; j<percentages.length; j+=1) {
+	// 	var yvalue = h*getRandomFloat(.3, .8);
+	// 	ctx.beginPath();
+	// 	ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
+	// 	ctx.strokeStyle = "#ffffff";
+	// 	ctx.stroke();
+	// }
 }
-
