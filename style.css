@@ -78,7 +78,7 @@ h2 {
 }
 
 .one:after {
-  content: "great gatsby";
+  content: "Great Gatsby";
   opacity: 0;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
@@ -101,7 +101,8 @@ h2 {
 }
 
 .two:after {
-  content: "wizard of oz";
+  content: "Jane Eyre";
+  margin-left: 10px;
   opacity: 0;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
@@ -187,6 +188,52 @@ h2 {
   border: 1px solid #fff;
   float: right;
 }
+
+.six:after {
+  content: "Wizard of Oz";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.six:hover:after {
+  opacity:1;
+}
+
+.six:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
+
+
+.seven:after {
+  content: "Old Man and the Sea";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.seven:hover:after {
+  opacity:1;
+}
+
+.seven:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
+
 
 /*cursor*/
 body, html {
