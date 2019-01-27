@@ -30,11 +30,10 @@ class Prompt(Cmd):
 	def do_find_neighbors(self, args):
 		"""give me [color] [text]"""
 		command = args.split()
-		color = command[0]
-		file = command[1]
-		color_corpus = open(command[1], 'w+')
+		file = command[0]
+		#color_corpus = open(command[1], 'w+')
 
-		corpus = open(command[1], encoding='utf8').read().lower()
+		corpus = open(file, encoding='utf8').read().lower()
 		stoplist = set(stopwords.words('english'))
 		clean = [word for word in corpus.split() if word not in stoplist]
 		clean = ' '.join(clean)
@@ -49,12 +48,12 @@ class Prompt(Cmd):
 		model.save('model.bin')
 		# load model
 		new_model = Word2Vec.load('model.bin')
-		color1 = [color]
-		print(model.wv.most_similar(positive=color1,topn=10))
+		#color1 = [color]
+		#print(model.wv.most_similar(positive=color1,topn=10))
 
 		for color in self.color_list:
 			sys.stdout.write(color + " ")
-			neighbors = model.wv.most_similar(positive=color1,topn=10)
+			neighbors = model.wv.most_similar(positive=color,topn=10)
 			for neighbor, val in neighbors:
 				sys.stdout.write(neighbor + " ")
 			sys.stdout.write("\n")
