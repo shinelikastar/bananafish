@@ -13,12 +13,12 @@ Built by Bethany, Star, Zachary, and Katherine for Hack@Brown 2019.
 
 # Structure
 
-**story.txt files:** complete copies of each story
+**story.txt files:** Complete copies of each story.
 
-**story-colors.txt files:** produced by a python script, contain space separated data in the form of 
-  alternating color names and frequency (in percents)
+**story-colors.txt files:** Produced by a python script, contain space separated data in the form of 
+  alternating color names and frequency (in percents).
 
-**story-neighbors files:** produced by a python script using word2vec, contain line break separated data
+**story-neighbors files:** Produced by a python script using word2vec, contain line break separated data
   representing the nearest neighbors of each color according to a word2vec model trained on the 
-  story.txt file for the story in question; each line consists of space separated data: first a 
-  color and then the ten nearest neighbors
+  story.txt file for the story in question. Each line consists of space separated data: first a 
+  color and then the ten nearest neighbors.
