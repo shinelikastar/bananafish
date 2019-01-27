@@ -3,6 +3,7 @@ var allText = "";
 var splitString = "";
 var cumulativeArray = [];
 
+
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
 
@@ -110,23 +111,26 @@ function setBg()  {
 	console.log("-----------------------------------------------")
 }
 
+var c = document.getElementById("myCanvas");
+
+
 function makeDots() {
-	// var c = document.getElementById("myCanvas");
-	// var ctx = c.getContext("2d");
-	// var w = window.innerWidth;
-	// var h = window.innerHeight;
-	// const percentages = cumulativeArray.map(x => x/100.0);
-	// const positions = percentages.map(x => x*w);
-	// const fixedPositions = positions.map(x => x-50);
+	var ctx = c.getContext("2d");
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	const percentages = cumulativeArray.map(x => x/100.0);
+	const positions = percentages.map(x => x*w);
+	const fixedPositions = positions.map(x => x-50);
 
-	// c.width = w;
-	// c.height = h;
+	c.width = w;
+	c.height = h;
 
-	// for (var j=0; j<percentages.length; j+=1) {
-	// 	var yvalue = h*getRandomFloat(.3, .8);
-	// 	ctx.beginPath();
-	// 	ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
-	// 	ctx.strokeStyle = "#ffffff";
-	// 	ctx.stroke();
-	// }
+	for (var j=0; j<percentages.length; j+=1) {
+		var yvalue = h*getRandomFloat(.3, .8);
+		ctx.beginPath();
+		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
+		ctx.strokeStyle = "#ffffff";
+		ctx.stroke();
+	}
+
 }
