@@ -263,7 +263,7 @@ h2 {
 }
 
 .nine:after {
-  content: "Poems of Edgar Allan Poe";
+  content: "Color of Magic";
   opacity: 0;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
@@ -285,7 +285,7 @@ h2 {
 }
 
 .ten:after {
-  content: "Leaves of Grass";
+  content: "Poems of Edgar Allan Poe";
   opacity: 0;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
