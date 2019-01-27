@@ -2,7 +2,7 @@
 
 Look here for our attempt to find the colors of stories through text analysis: 
 
-https://shinelikastar.github.io/bananafish/
+https://shinelikastar.github.io/coloringbooks/
 
 Use the sidebar to navigate, and see how different works of literature fit along the color spectrum.
 Website written in html/css/java script, with texts taken from Project Gutenberg and other online 
