@@ -306,6 +306,28 @@ h2 {
   float: right;
 }
 
+.eleven:after {
+  content: "Alice in Wonderland";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.eleven:hover:after {
+  opacity:1;
+}
+
+.eleven:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
+
 
 /*cursor*/
 body, html {
