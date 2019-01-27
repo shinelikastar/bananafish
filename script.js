@@ -6,12 +6,12 @@ var cumulativeArray = [];
 var dom = document.body;
 var bg = "linear-gradient( to right, ";
 
-document.getElementsByClassName("one").addEventListener("click", readTextFile(file, title));
-document.getElementsByClassName("two").addEventListener("click", readTextFile(file, title));
-document.getElementsByClassName("three").addEventListener("click", readTextFile(file, title));
-document.getElementsByClassName("four").addEventListener("click", readTextFile(file, title));
-document.getElementsByClassName("five").addEventListener("click", readTextFile(file, title));
-document.getElementsByClassName("six").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("one").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("two").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("three").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("four").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("five").addEventListener("click", readTextFile(file, title));
+// document.getElementsByClassName("six").addEventListener("click", readTextFile(file, title));
 
 
 function getTitle() {
