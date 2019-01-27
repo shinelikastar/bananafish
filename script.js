@@ -49,7 +49,7 @@ function getRandomFloat(min, max) {
 function setBg()  {
 	var cumulative = 0;
 	bg = "linear-gradient( to right, ";
-	console.log(bg.length);
+	console.log(splitString);
 
 	console.log("set bg len:"  + splitString.length);
 

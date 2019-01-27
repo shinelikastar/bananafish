@@ -17,6 +17,7 @@ body {
   margin: 0;
   padding: 30px;
   overflow: hidden;
+  transition: background-color 0.5s ease;
   /* TRANSITION */
   -webkit-transition: background 1s;
   -moz-transition: background 1s;
@@ -240,7 +241,7 @@ h2 {
 }
 
 .eight:after {
-  content: "The Scarlet Letter";
+  content: "The Picture of Dorian Gray";
   opacity: 0;
   -webkit-transition: 0.8s;
   -moz-transition: 0.8s;
@@ -261,6 +262,49 @@ h2 {
   float: right;
 }
 
+.nine:after {
+  content: "Poems of Edgar Allan Poe";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.nine:hover:after {
+  opacity:1;
+}
+
+.nine:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
+
+.ten:after {
+  content: "Leaves of Grass";
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.ten:hover:after {
+  opacity:1;
+}
+
+.ten:before {
+  margin-left:30px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  float: right;
+}
 
 
 /*cursor*/
