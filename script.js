@@ -164,6 +164,7 @@ function makeDots2(res) {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 
+	console.log("total: ");
 	console.log(res);
 
 
@@ -171,31 +172,56 @@ function makeDots2(res) {
 	var positions = percentages.map(x => x*w);
 	var fixedPositions = positions.map(x => x-50);
 
-	for (var i = 0;  i < percentages.length; i++) {
-		var circ = document.createElement('div');
-		circ.className = 'circle';
+	console.log(res.length);
+	for (var i = 0; i < res.length; i++) {
+		var neighbor_arr = res[i];
 
-		var yvalue = h*getRandomFloat(.3, .8);
-		circ.style.left = fixedPositions[i] + "px";
-		circ.style.top = yvalue + "px";
+		if (neighbor_arr.length > 0) {
+			var circ = document.createElement('div');
+			circ.className = 'circle';
+	
+			var yvalue = h*getRandomFloat(.3, .8);
+			circ.style.left = fixedPositions[i] + "px";
+			circ.style.top = yvalue + "px";
 
-		neighbors = "";
-		var neighbors_arr = res[i];
-		// console.log(neighbors_arr);
-		for (var q = 0; q < neighbors_arr.length; q++) {
-			// console.log("res: " + neighbors_arr[q])
-			neighbors += neighbors_arr[q] + " ";
+			// set neighbors
+			neighbor = "";
+			for (var q = 0; q< neighbor_arr.length; q++ ) {
+				neighbor += neighbor_arr[q] + " ";
+			}
+
+			console.log(neighbor);
+			circ.setAttribute("data-tippy", neighbor); 
+			document.body.appendChild(circ);
 		}
-		console.log(neighbors);
 
-		// console.log("neighbors" + neighbors);
 
-		circ.setAttribute("data-tippy", neighbors); 
-		
-		document.body.appendChild(circ);
-		circle_divs.push(circ);
-		
 	}
+
+	// for (var i = 0;  i < percentages.length; i++) {
+	// 	var circ = document.createElement('div');
+	// 	circ.className = 'circle';
+
+	// 	var yvalue = h*getRandomFloat(.3, .8);
+	// 	circ.style.left = fixedPositions[i] + "px";
+	// 	circ.style.top = yvalue + "px";
+
+	// 	neighbors = "";
+	// 	var neighbors_arr = res[i];
+	// 	// console.log(neighbors_arr);
+	// 	for (var q = 0; q < neighbors_arr.length; q++) {
+	// 		// console.log("res: " + neighbors_arr[q])
+	// 		neighbors += neighbors_arr[q] + " ";
+	// 	}
+	// 	// console.log(neighbors);
+	// 	// console.log("neighbors" + neighbors);
+	// 	circ.setAttribute("data-tippy", neighbors); 
+		
+	// 	document.body.appendChild(circ);
+	// 	circle_divs.push(circ);
+	// 	console.log(circ);
+		
+	// }
 
 }
 
