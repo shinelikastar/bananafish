@@ -155,18 +155,17 @@ function setBg()  {
 var circle_divs = [];
 
 function makeDots2(res) {
-	// clean if needed
-	// console.log("before: " + circle_divs)
-	// for (var i = 0; i < circle_divs.length; i++) {
-	// 	document.body.removeChild(circle_divs[i]);
-	// }
-	// console.log("after removal: " + circle_divs.length)
+
+	console.log("circle divs: " + circle_divs );
+
+	for (var c = 0; c < circle_divs.length; c++) {
+		document.body.removeChild(circle_divs[c]);
+		circle_divs.splice(c,1);
+	}
+
+	console.log("circle divs after delete: " + circle_divs);
 	var w = window.innerWidth;
 	var h = window.innerHeight;
-
-	console.log("total: ");
-	console.log(res);
-
 
 	var percentages = cumulativeArray.map(x => x/100.0);
 	var positions = percentages.map(x => x*w);
@@ -189,10 +188,10 @@ function makeDots2(res) {
 			for (var q = 0; q< neighbor_arr.length; q++ ) {
 				neighbor += neighbor_arr[q] + " ";
 			}
-
-			console.log(neighbor);
 			circ.setAttribute("data-tippy", neighbor); 
+			console.log(circ);
 			document.body.appendChild(circ);
+			circle_divs.push(circ);
 		}
 
 
