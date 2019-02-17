@@ -14,9 +14,11 @@ function getTitle() {
   document.getElementById("titleContainer").appendChild(h);
 }
 
-function readTextFile(file, title)
+function readTextFile(file, neighbors_file, title)
 {
+	/* set title */
 	document.getElementById("titleContainer").innerHTML = title;
+	/* reading in color text file */
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
     rawFile.onreadystatechange = function ()
@@ -31,10 +33,62 @@ function readTextFile(file, title)
         }
     }
     rawFile.send(null);
-	setBg();
-	makeDots2();
-	// makeDots();
+
+    /* reading in neighbors text file */
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", neighbors_file, false);
+    var res = [];
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+				var lines = allText.split("\n");
+				// console.log(lines);
+				for (var i = 0; i < lines.length; i++) {
+					var line = lines[i].split(" ");
+					var neighbors = [];
+					for (var j = 1; j < line.length; j++) {
+						/* skip first word that denotes the color */
+						var neighbor_word = line[j];
+						if (neighbor_word !== "") {
+							neighbors.push(neighbor_word);
+						}
+					}
+					res.push(neighbors);
+					// console.log("neighbors\n" + neighbors);
+				}
+            }
+        }
+    }
+    rawFile.send(null);
+    setBg();
+    // console.log(res);
+	makeDots2(res);
 }
+// function readTextFile(file, title)
+// {
+// 	document.getElementById("titleContainer").innerHTML = title;
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.open("GET", file, false);
+//     rawFile.onreadystatechange = function ()
+//     {
+//         if(rawFile.readyState === 4)
+//         {
+//             if(rawFile.status === 200 || rawFile.status == 0)
+//             {
+//                 allText = rawFile.responseText;
+// 				splitString = allText.split(" ");
+//             }
+//         }
+//     }
+//     rawFile.send(null);
+// 	setBg();
+// 	makeDots2();
+// 	// makeDots();
+// }
 
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
@@ -100,7 +154,7 @@ function setBg()  {
 
 var circle_divs = [];
 
-function makeDots2() {
+function makeDots2(res) {
 	// clean if needed
 	// console.log("before: " + circle_divs)
 	// for (var i = 0; i < circle_divs.length; i++) {
@@ -110,12 +164,13 @@ function makeDots2() {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 
+	console.log(res);
+
 
 	var percentages = cumulativeArray.map(x => x/100.0);
 	var positions = percentages.map(x => x*w);
 	var fixedPositions = positions.map(x => x-50);
 
-	console.log(percentages.length)
 	for (var i = 0;  i < percentages.length; i++) {
 		var circ = document.createElement('div');
 		circ.className = 'circle';
@@ -123,9 +178,20 @@ function makeDots2() {
 		var yvalue = h*getRandomFloat(.3, .8);
 		circ.style.left = fixedPositions[i] + "px";
 		circ.style.top = yvalue + "px";
-		circ.setAttribute("data-tippy", "hello this is a test"); 
 
-		console.log(circ);
+		neighbors = "";
+		var neighbors_arr = res[i];
+		// console.log(neighbors_arr);
+		for (var q = 0; q < neighbors_arr.length; q++) {
+			// console.log("res: " + neighbors_arr[q])
+			neighbors += neighbors_arr[q] + " ";
+		}
+		console.log(neighbors);
+
+		// console.log("neighbors" + neighbors);
+
+		circ.setAttribute("data-tippy", neighbors); 
+		
 		document.body.appendChild(circ);
 		circle_divs.push(circ);
 		
@@ -142,8 +208,8 @@ function makeDots2() {
 // 	circle.style.position = "absolute";
 
 // 	var ctx = c.getContext("2d");
-	var w = window.innerWidth;
-	var h = window.innerHeight;
+	// var w = window.innerWidth;
+	// var h = window.innerHeight;
 
 // 	var percentages = cumulativeArray.map(x => x/100.0);
 // 	var positions = percentages.map(x => x*w);

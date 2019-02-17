@@ -17,22 +17,23 @@
 
 
 	<script>
+		tippy('.circle')
 	</script>
 </head>
 
-<body onload="getTitle(), readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/gatsby-colors.txt', 'The Great Gatsby')" >
+<body onload="getTitle(), readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/gatsby-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/alice-neighbors.txt', 'The Great Gatsby')" >
 <div id='sidebar'>
-	<a class="eleven" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/alice.txt', 'Alice in Wonderland')"  href="javascript:;"></a>
-	<a class="eight" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/dorian-colors.txt', 'The Picture of Dorian Gray')"  href="javascript:;"></a>
-	<a class="nine" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/cofmagic-colors.txt', 'Color of Magic')"  href="javascript:;"></a>
-	<a class="ten" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/epoe-colors.txt', 'Edgar Allan Poe(ms)')"  href="javascript:;"></a>
-	<a class="four" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/frank-colors.txt', 'Frankenstein')"  href="javascript:;"></a>
-    <a class="one" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/gatsby-colors.txt', 'The Great Gatsby')" href="javascript:;"></a>
-    <a class="two" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/jane-eyre-colors.txt', 'Jane Eyre')"  href="javascript:;"></a>
-	<a class="three" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/little-red-colors.txt', 'Little Red Riding Hood')"  href="javascript:;"></a>
-	<a class="five" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/moby-colors.txt', 'Moby Dick')"  href="javascript:;"></a>
-	<a class="six" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/oz-colors.txt', 'Wizard of Oz')"  href="javascript:;"></a>
-	<a class="seven" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/bananafish/master/scarlet-colors.txt', 'The Scarlet Letter')"  href="javascript:;"></a>
+		<a class="eleven" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/alice.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/alice-neighbors.txt','Alice in Wonderland')"  href="javascript:;"></a>
+	<a class="eight" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/dorian-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/dorian-neighbors.txt','The Picture of Dorian Gray')"  href="javascript:;"></a>
+	<a class="nine" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/cofmagic-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/cofmagic-neighbors.txt','Color of Magic')"  href="javascript:;"></a>
+	<a class="ten" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/epoe-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/epoe-neighbors.txt', 'Edgar Allan Poe(ms)')"  href="javascript:;"></a>
+	<a class="four" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/frank-colors.txt', 'https://github.com/shinelikastar/coloringbooks/blob/master/frank-neighbors.txt','Frankenstein')"  href="javascript:;"></a>
+    <a class="one" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/gatsby-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/gatsby-neighbors.txt', 'The Great Gatsby')" href="javascript:;"></a>
+    <a class="two" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/jane-eyre-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/jane-eyre-neighbors.txt','Jane Eyre')"  href="javascript:;"></a>
+	<a class="three" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/little-red-colors.txt', 'Little Red Riding Hood')"  href="javascript:;"></a>
+	<a class="five" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/moby-colors.txt', 'https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/moby-neighbors.txt','Moby Dick')"  href="javascript:;"></a>
+	<a class="six" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/oz-colors.txt', 'https://github.com/shinelikastar/coloringbooks/blob/master/oz-neighbors.txt','Wizard of Oz')"  href="javascript:;"></a>
+	<a class="seven" onclick="readTextFile('https://raw.githubusercontent.com/shinelikastar/coloringbooks/master/scarlet-colors.txt', 'https://github.com/shinelikastar/coloringbooks/blob/master/scarlet-neighbors.txt','The Scarlet Letter')"  href="javascript:;"></a>
 
 
 
@@ -42,6 +43,8 @@
 <div class='top-bar'>
 	<h1>coloring books</h1>
 	<h1>choose more words!</h1>
+
+	<div class="circle" data-tippy="I will be created automatically"></div>
 </div>
 
 <h2>
