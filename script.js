@@ -31,8 +31,9 @@ function readTextFile(file, title)
         }
     }
     rawFile.send(null);
-    setBg();
-	makeDots();
+	setBg();
+	makeDots2();
+	// makeDots();
 }
 
 function getRandomFloat(min, max) {
@@ -97,32 +98,71 @@ function setBg()  {
 	// console.log("-----------------------------------------------")
 }
 
+var circle_divs = [];
 
-function makeDots() {
-	clearDots();
-	var c = document.getElementById("myCanvas");
-	var ctx = c.getContext("2d");
+function makeDots2() {
+	// clean if needed
+	// console.log("before: " + circle_divs)
+	// for (var i = 0; i < circle_divs.length; i++) {
+	// 	document.body.removeChild(circle_divs[i]);
+	// }
+	// console.log("after removal: " + circle_divs.length)
 	var w = window.innerWidth;
 	var h = window.innerHeight;
+
 
 	var percentages = cumulativeArray.map(x => x/100.0);
 	var positions = percentages.map(x => x*w);
 	var fixedPositions = positions.map(x => x-50);
 
-	c.width = w;
-	c.height = h;
+	console.log(percentages.length)
+	for (var i = 0;  i < percentages.length; i++) {
+		var circ = document.createElement('div');
+		circ.className = 'circle';
 
-	for (var j=0; j<percentages.length; j+=1) {
 		var yvalue = h*getRandomFloat(.3, .8);
-		ctx.beginPath();
-		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
-		ctx.strokeStyle = "#ffffff";
-		ctx.stroke();
+		circ.style.left = fixedPositions[i] + "px";
+		circ.style.top = yvalue + "px";
+		circ.setAttribute("data-tippy", "hello this is a test"); 
+
+		console.log(circ);
+		document.body.appendChild(circ);
+		circle_divs.push(circ);
+		
 	}
+
 }
 
-function clearDots() {
-	var c = document.getElementById("myCanvas");
-	var ctx = c.getContext("2d");
-	ctx.clearRect(0, 0, c.width, c.height);
-}
+// function makeDots() {
+// 	clearDots();
+// 	var c = document.getElementById("myCanvas");
+
+// 	var circle = document.createElement("div");
+// 	circle.ClassName = "circle_div";
+// 	circle.style.position = "absolute";
+
+// 	var ctx = c.getContext("2d");
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+
+// 	var percentages = cumulativeArray.map(x => x/100.0);
+// 	var positions = percentages.map(x => x*w);
+// 	var fixedPositions = positions.map(x => x-50);
+
+// 	c.width = w;
+// 	c.height = h;
+
+// 	for (var j=0; j<percentages.length; j+=1) {
+// 		var yvalue = h*getRandomFloat(.3, .8);
+// 		ctx.beginPath();
+// 		ctx.arc(fixedPositions[j], yvalue, 8, 0, 2 * Math.PI);
+// 		ctx.strokeStyle = "#ffffff";
+// 		ctx.stroke();
+// 	}
+// }
+
+// function clearDots() {
+// 	var c = document.getElementById("myCanvas");
+// 	var ctx = c.getContext("2d");
+// 	ctx.clearRect(0, 0, c.width, c.height);
+// }

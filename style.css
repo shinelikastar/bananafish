@@ -330,7 +330,7 @@ h2 {
 
 
 /*cursor*/
-body, html {
+/* body, html {
   cursor: url(https://rm-content.s3-accelerate.amazonaws.com/5727aec1db932f2f3ac1f556/957532/upload-e1250e30-139f-11e8-af61-ef72959cb5f6.png) 25 15, auto;
   height: 100%;
 }
@@ -344,4 +344,17 @@ a:link {
 a:hover {
   cursor: url(https://rm-content.s3-accelerate.amazonaws.com/5727aec1db932f2f3ac1f556/957532/upload-da51a890-141a-11e8-b3e1-7b376df50f61.png) 25 15, pointer;
   height: 100%;
+} */
+
+
+.circle {
+  position: fixed;
+  color: transparent;
+  border: 1px solid #fff; 
+  border-radius:10px;
+  width: 15px;
+  height: 15px;
+  top: 10px;
+  left: 10px;
+  z-index: 999999999999999999999999;
 }
