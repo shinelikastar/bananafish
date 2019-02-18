@@ -188,7 +188,8 @@ function makeDots2(res) {
 			for (var q = 0; q< neighbor_arr.length; q++ ) {
 				neighbor += neighbor_arr[q] + " ";
 			}
-			circ.setAttribute("data-tippy", "this is an example"); 
+			circ.setAttribute("data-tippy", neighbor); 
+			circ.setAttribute("tabindex", "0");
 			console.log(circ);
 			document.body.appendChild(circ);
 			circle_divs.push(circ);
